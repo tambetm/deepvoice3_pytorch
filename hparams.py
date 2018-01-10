@@ -68,7 +68,7 @@ hparams = tf.contrib.training.HParams(
             "ref_level_db": 20,
             "n_speakers": 1,
             "downsample_step": 1,
-            "outputs_per_step": 1,
+            "outputs_per_step": 4,
             "embedding_weight_std": 0.1,
             "dropout": 1 - 0.95,
             "kernel_size": 3,

@@ -24,6 +24,14 @@ if __name__ == "__main__":
     hparams.parse(args["--hparams"])
     assert hparams.name == "deepvoice3"
 
+    # Presets
+    if hparams.preset is not None and hparams.preset != "":
+        preset = hparams.presets[hparams.preset]
+        import json
+        hparams.parse_json(json.dumps(preset))
+        print("Override hyper parameters with preset \"{}\": {}".format(
+            hparams.preset, json.dumps(preset, indent=4)))
+
     train._frontend = getattr(frontend, hparams.frontend)
 
     # Code below
