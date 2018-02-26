@@ -95,3 +95,19 @@ def english_cleaners(text):
     text = expand_abbreviations(text)
     text = collapse_whitespace(text)
     return text
+
+def estonian_cleaners(text):
+    '''Pipeline for Estonian text.'''
+    #print("Before:", text)
+    #text = add_punctuation(text)
+    text = lowercase(text)
+    text = text.replace('*', '')
+    text = text.replace('’', '')
+    text = text.replace('"', '')
+    #text = text.replace('“', '"')
+    #text = text.replace('„', '"')
+    #text = expand_numbers(text)
+    #text = expand_abbreviations(text)
+    text = collapse_whitespace(text)
+    #print("After:", text)
+    return text

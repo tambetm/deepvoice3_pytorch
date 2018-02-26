@@ -25,6 +25,9 @@ from os.path import dirname, join
 from tqdm import tqdm, trange
 from datetime import datetime
 
+import matplotlib
+matplotlib.use('Agg')
+
 # The deepvoice3 model
 from deepvoice3_pytorch import frontend, builder
 import audio

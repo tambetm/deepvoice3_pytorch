@@ -13,6 +13,7 @@ and the property:
 
 """
 from deepvoice3_pytorch.frontend import en
+from deepvoice3_pytorch.frontend import et
 
 # optinoal Japanese frontend
 try:
