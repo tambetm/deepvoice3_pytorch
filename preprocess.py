@@ -42,6 +42,6 @@ if __name__ == "__main__":
     num_workers = args["--num_workers"]
     num_workers = cpu_count() if num_workers is None else int(num_workers)
 
-    assert name in ["jsut", "ljspeech", "vctk", "nikl_m", "nikl_s", "eva", "er-uudised"]
+    assert name in ["jsut", "ljspeech", "vctk", "nikl_m", "nikl_s", "eva", "er_s", "er_m"]
     mod = importlib.import_module(name)
     preprocess(mod, in_dir, out_dir, num_workers)

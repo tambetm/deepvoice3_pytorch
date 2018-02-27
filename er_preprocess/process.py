@@ -10,6 +10,7 @@ import librosa
 #import regex as re
 
 def parse_speakers(trans):
+    # too lazy to carry these through
     global args
     global spks
     global csvs
@@ -19,6 +20,9 @@ def parse_speakers(trans):
     assert speakers is not None
     for speaker in speakers.findall('Speaker'):
         spk = dict(speaker.attrib)
+        # fix mistake in transcription file
+        if spk['name'] == 'Tõnu Karjaste':
+            spk['name'] == 'Tõnu Karjatse'
         spk['folder_name'] = spk['name'].replace(' ', '_')
         #spk['folder_name'] = "{sane_name}_{type}_{dialect}_{accent}_{scope}".format(**spk)
         spks[spk['id']] = spk
@@ -164,6 +168,7 @@ def parse_episodes(trans):
                     write_segment(float(current_time), float(turn_end), current_text, speaker, section.attrib, turn.attrib)
 
 def write_segment(start_time, end_time, text, speaker, section, turn):
+    # too lazy to carry these through
     global args
     global spks
     global csvs
