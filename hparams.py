@@ -37,7 +37,7 @@ hparams = tf.contrib.training.HParams(
     presets={
         "deepvoice3_ers": {
             "frontend": "et",
-            "builder": "deepvoice3"
+            "builder": "deepvoice3",
             "n_speakers": 1,
             "downsample_step": 4,
             "outputs_per_step": 1,
@@ -63,7 +63,7 @@ hparams = tf.contrib.training.HParams(
         },
         "deepvoice3_erm": {
             "frontend": "et",
-            "builder": "deepvoice3_multispeaker"
+            "builder": "deepvoice3_multispeaker",
             "n_speakers": 7,
             "downsample_step": 4,
             "outputs_per_step": 1,
