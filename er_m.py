@@ -14,12 +14,12 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
     speakers = ["Meelis_Kompus", "Tarmo_Maiberg", "Birgit_Itse", "Vallo_Kelmsaar", "Indrek_Kiisler", "Tõnu_Karjatse", "Kai_Vare"]
 
     index = 1
-    for speaker in speakers:
+    for speaker_id, speaker in enumerate(speakers):
       with open(os.path.join(in_dir, speaker, 'sentences.csv'), encoding='utf-8') as f:
         for row in csv.reader(f):
           wav_path = os.path.join(in_dir, speaker, row[0])
           text = row[1]
-          futures.append(executor.submit(partial(_process_utterance, out_dir, index, speaker, wav_path, text)))
+          futures.append(executor.submit(partial(_process_utterance, out_dir, index, speaker_id, wav_path, text)))
           index += 1
     return [future.result() for future in tqdm(futures)]
 
