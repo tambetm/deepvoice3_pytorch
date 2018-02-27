@@ -1,6 +1,6 @@
 # coding: utf-8
 
-symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!\'(),-.:;? ÕÄÖÜŠŽõäöüšž"“„’*'
+symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!\'()[],-.:;? ÕÄÖÜŠŽõäöüšž"“„’*'
 n_vocab = len(symbols)
 
 def text_to_sequence(text, p=0.0):

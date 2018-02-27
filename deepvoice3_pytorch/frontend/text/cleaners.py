@@ -14,7 +14,6 @@ import re
 from unidecode import unidecode
 from .numbers import normalize_numbers
 
-
 # Regular expression matching whitespace:
 _whitespace_re = re.compile(r'\s+')
 
@@ -104,8 +103,8 @@ def estonian_cleaners(text):
     #text = text.replace('*', '')
     #text = text.replace('’', '')
     #text = text.replace('"', '')
-    #text = text.replace('“', '"')
-    #text = text.replace('„', '"')
+    text = text.replace('“', '"')
+    text = text.replace('„', '"')
     #text = expand_numbers(text)
     #text = expand_abbreviations(text)
     text = collapse_whitespace(text)

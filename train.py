@@ -370,6 +370,7 @@ def prepare_spec_image(spectrogram):
 
 def eval_model(global_step, writer, model, checkpoint_dir, ismultispeaker):
     # harded coded
+    '''
     texts = [
         "Scientists at the CERN laboratory say they have discovered a new particle.",
         "There's a way to measure the acute emotional intelligence that has never gone out of style.",
@@ -378,6 +379,20 @@ def eval_model(global_step, writer, model, checkpoint_dir, ismultispeaker):
         "Please call Stella.",
         "Some have accepted this as a miracle without any physical explanation.",
     ]
+    '''
+    texts = [
+      "Kell on neli, Eesti Raadio uudistega on stuudios Meelis Kompus.",
+      "Külma on üks kuni viis kraadi ja saartel on õhutemperatuur miinus ühe ja pluss ühe kraadi vahel. [r]",
+      "Need olid Eesti Raadio uudised.",
+      #"Martini töö on kellegi teise pealt maha kopeeritud.",
+      #"Milline on toetuste maksmise kord?",
+      #"Ma pole sel aastal kordagi haige olnud.",
+      #"„Kolme kuu jooksul on elu siin suhteliselt palju muutunud,“ nentis president Ilves.",
+      "Kanepi läbis Austraalias kvalifikatsiooni edukalt ja pääses kolmekümne kahe parema hulka.",
+      #"Järelehüüded suletud sarga kõrval: liiga vara laskunud vaikus on nii ülekohtune.",
+      "Võõra viipekaardi leidnud alaealised lõid laiaks suure summa.",
+      "Las Vegases lasi mees maha kaks hotelli turvatöötajat."
+    ]
     import synthesis
     synthesis._frontend = _frontend
 
@@ -385,7 +400,7 @@ def eval_model(global_step, writer, model, checkpoint_dir, ismultispeaker):
     os.makedirs(eval_output_dir, exist_ok=True)
 
     # hard coded
-    speaker_ids = [0, 1, 10] if ismultispeaker else [None]
+    speaker_ids = [0, 1, 6] if ismultispeaker else [None]
     for speaker_id in speaker_ids:
         speaker_str = "multispeaker{}".format(speaker_id) if speaker_id is not None else "single"
 
