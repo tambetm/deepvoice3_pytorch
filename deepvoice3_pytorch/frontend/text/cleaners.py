@@ -95,14 +95,14 @@ def english_cleaners(text):
     text = collapse_whitespace(text)
     return text
 
-def estonian_cleaners(text):
+def estonian_cleaners_eva(text):
     '''Pipeline for Estonian text.'''
     #print("Before:", text)
     #text = add_punctuation(text)
     #text = lowercase(text)
-    #text = text.replace('*', '')
-    #text = text.replace('’', '')
-    #text = text.replace('"', '')
+    text = text.replace('*', '')
+    text = text.replace('’', '')
+    text = text.replace('"', '')
     text = text.replace('“', '"')
     text = text.replace('„', '"')
     #text = expand_numbers(text)
@@ -110,3 +110,27 @@ def estonian_cleaners(text):
     text = collapse_whitespace(text)
     #print("After:", text)
     return text
+
+def estonian_cleaners_eva_lowercase(text):
+    '''Pipeline for Estonian text.'''
+    return estonian_cleaners_eva(lowercase(text))
+
+def estonian_cleaners_er(text):
+    '''Pipeline for Estonian text.'''
+    #print("Before:", text)
+    #text = add_punctuation(text)
+    #text = lowercase(text)
+    #text = text.replace('*', '')
+    #text = text.replace('’', '')
+    #text = text.replace('"', '')
+    #text = text.replace('“', '"')
+    #text = text.replace('„', '"')
+    #text = expand_numbers(text)
+    #text = expand_abbreviations(text)
+    text = collapse_whitespace(text)
+    #print("After:", text)
+    return text
+
+def estonian_cleaners_er_lowercase(text):
+    '''Pipeline for Estonian text.'''
+    return estonian_cleaners_er(lowercase(text))

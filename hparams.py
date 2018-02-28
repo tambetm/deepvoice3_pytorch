@@ -35,8 +35,34 @@ hparams = tf.contrib.training.HParams(
     # NOTE: If specified, override hyper parameters with preset
     preset="",
     presets={
+        "deepvoice3_eva": {
+            "frontend": "et_eva",
+            "builder": "deepvoice3",
+            "n_speakers": 1,
+            "downsample_step": 4,
+            "outputs_per_step": 1,
+            "embedding_weight_std": 0.1,
+            "dropout": 1 - 0.95,
+            "kernel_size": 3,
+            "text_embed_dim": 256,
+            "encoder_channels": 512,
+            "decoder_channels": 256,
+            "converter_channels": 256,
+            "use_guided_attention": True,
+            "guided_attention_sigma": 0.2, # 0.4
+            "binary_divergence_weight": 0.1,
+            "use_decoder_state_for_postnet_input": True,
+            "max_positions": 800,
+            "query_position_rate": 1.0,	# 2.0
+            "key_position_rate": 1.385,	# 7.6
+            "key_projection": True,
+            "value_projection": True,
+            "clip_thresh": 0.1,
+            "initial_learning_rate": 5e-4,
+#            "batch_size": 8,
+        },
         "deepvoice3_ers": {
-            "frontend": "et",
+            "frontend": "et_er",
             "builder": "deepvoice3",
             "n_speakers": 1,
             "downsample_step": 4,
@@ -62,7 +88,7 @@ hparams = tf.contrib.training.HParams(
 #            "batch_size": 8,
         },
         "deepvoice3_erm": {
-            "frontend": "et",
+            "frontend": "et_er",
             "builder": "deepvoice3_multispeaker",
             "n_speakers": 7,
             "downsample_step": 4,
