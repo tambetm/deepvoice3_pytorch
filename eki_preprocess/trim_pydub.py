@@ -27,6 +27,7 @@ parser.add_argument('--output_dir', default='eva_trimmed_pydub')
 parser.add_argument('--chunk_size', type=int, default=10)
 parser.add_argument('--silence_threshold_begin', type=float, default=-33.0)
 parser.add_argument('--silence_threshold_end', type=float, default=-47.0)
+parser.add_argument('--cut_begin', type=int)
 args = parser.parse_args()
 
 if not os.path.isdir(args.output_dir):
@@ -36,6 +37,8 @@ input_match = os.path.join(args.input_dir, args.input_files)
 for filename in glob.glob(input_match):
     print(filename, end='')
     sound = AudioSegment.from_wav(filename)
+    if args.cut_begin:
+        sound = sound[args.cut_begin:]
     start_trim = detect_leading_silence(sound, args.silence_threshold_begin, args.chunk_size)
     end_trim = detect_leading_silence(sound.reverse(), args.silence_threshold_end, args.chunk_size)
     print(" ", start_trim, end_trim)
