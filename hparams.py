@@ -9,7 +9,7 @@ hparams = tf.contrib.training.HParams(
 
     # Text:
     # [en, jp]
-    frontend='en',
+    frontend='et',
 
     # Replace words to its pronunciation with fixed probability.
     # e.g., 'hello' to 'HH AH0 L OW1'
@@ -36,33 +36,6 @@ hparams = tf.contrib.training.HParams(
     preset="",
     presets={
         "deepvoice3_eva": {
-            "frontend": "et_eva",
-            "builder": "deepvoice3",
-            "n_speakers": 1,
-            "downsample_step": 4,
-            "outputs_per_step": 1,
-            "embedding_weight_std": 0.1,
-            "dropout": 1 - 0.95,
-            "kernel_size": 3,
-            "text_embed_dim": 256,
-            "encoder_channels": 512,
-            "decoder_channels": 256,
-            "converter_channels": 256,
-            "use_guided_attention": True,
-            "guided_attention_sigma": 0.2, # 0.4
-            "binary_divergence_weight": 0.1,
-            "use_decoder_state_for_postnet_input": True,
-            "max_positions": 800,
-            "query_position_rate": 1.0,	# 2.0
-            "key_position_rate": 1.385,	# 7.6
-            "key_projection": True,
-            "value_projection": True,
-            "clip_thresh": 0.1,
-            "initial_learning_rate": 5e-4,
-#            "batch_size": 8,
-        },
-        "deepvoice3_eva_lowercase": {
-            "frontend": "et_eva_lowercase",
             "builder": "deepvoice3",
             "n_speakers": 1,
             "downsample_step": 4,
@@ -88,7 +61,6 @@ hparams = tf.contrib.training.HParams(
 #            "batch_size": 8,
         },
         "deepvoice3_ers": {
-            "frontend": "et_er",
             "builder": "deepvoice3",
             "n_speakers": 1,
             "downsample_step": 4,
@@ -113,14 +85,63 @@ hparams = tf.contrib.training.HParams(
             "initial_learning_rate": 5e-4,
 #            "batch_size": 8,
         },
-        "deepvoice3_ers_lowercase": {
-            "frontend": "et_er_lowercase",
+        "deepvoice3_ers_alt": {
             "builder": "deepvoice3",
             "n_speakers": 1,
             "downsample_step": 4,
             "outputs_per_step": 1,
             "embedding_weight_std": 0.1,
             "dropout": 1 - 0.95,
+            "kernel_size": 3,
+            "text_embed_dim": 256,
+            "encoder_channels": 512,
+            "decoder_channels": 256,
+            "converter_channels": 256,
+            "use_guided_attention": True,
+            "guided_attention_sigma": 0.4, # 0.4
+            "binary_divergence_weight": 0.1,
+            "use_decoder_state_for_postnet_input": True,
+            "max_positions": 1500,
+            "query_position_rate": 2.0,	# 2.0
+            "key_position_rate": 7.6,	# 7.6
+            "key_projection": True,
+            "value_projection": True,
+            "clip_thresh": 0.1,
+            "initial_learning_rate": 5e-4,
+#            "batch_size": 8,
+        },
+        "deepvoice3_ers_small": {
+            "builder": "deepvoice3",
+            "n_speakers": 1,
+            "downsample_step": 4,
+            "outputs_per_step": 1,
+            "embedding_weight_std": 0.1,
+            "dropout": 1 - 0.95,
+            "kernel_size": 3,
+            "text_embed_dim": 128,
+            "encoder_channels": 256,
+            "decoder_channels": 256,
+            "converter_channels": 256,
+            "use_guided_attention": True,
+            "guided_attention_sigma": 0.2, # 0.4
+            "binary_divergence_weight": 0.1,
+            "use_decoder_state_for_postnet_input": True,
+            "max_positions": 1500,
+            "query_position_rate": 1.0,	# 2.0
+            "key_position_rate": 1.385,	# 7.6
+            "key_projection": True,
+            "value_projection": True,
+            "clip_thresh": 0.1,
+            "initial_learning_rate": 5e-4,
+#            "batch_size": 8,
+        },
+        "deepvoice3_ers_dropout": {
+            "builder": "deepvoice3",
+            "n_speakers": 1,
+            "downsample_step": 4,
+            "outputs_per_step": 1,
+            "embedding_weight_std": 0.1,
+            "dropout": 1 - 0.9,
             "kernel_size": 3,
             "text_embed_dim": 256,
             "encoder_channels": 512,
@@ -140,7 +161,6 @@ hparams = tf.contrib.training.HParams(
 #            "batch_size": 8,
         },
         "deepvoice3_erm": {
-            "frontend": "et_er",
             "builder": "deepvoice3_multispeaker",
             "n_speakers": 7,
             "downsample_step": 4,
@@ -166,8 +186,7 @@ hparams = tf.contrib.training.HParams(
             "initial_learning_rate": 5e-4,
 #            "batch_size": 8,
         },
-        "deepvoice3_erm_lowercase": {
-            "frontend": "et_er_lowercase",
+        "deepvoice3_erm_small": {
             "builder": "deepvoice3_multispeaker",
             "n_speakers": 7,
             "downsample_step": 4,
@@ -175,6 +194,32 @@ hparams = tf.contrib.training.HParams(
             "embedding_weight_std": 0.1,
             "speaker_embedding_weight_std": 0.05,
             "dropout": 1 - 0.95,
+            "kernel_size": 3,
+            "text_embed_dim": 128,
+            "encoder_channels": 256,
+            "decoder_channels": 256,
+            "converter_channels": 256,
+            "use_guided_attention": True,
+            "guided_attention_sigma": 0.4,
+            "binary_divergence_weight": 0.1,
+            "use_decoder_state_for_postnet_input": True,
+            "max_positions": 1500,
+            "query_position_rate": 2.0,
+            "key_position_rate": 7.6,
+            "key_projection": True,
+            "value_projection": True,
+            "clip_thresh": 0.1,
+            "initial_learning_rate": 5e-4,
+#            "batch_size": 8,
+        },
+        "deepvoice3_erm_dropout": {
+            "builder": "deepvoice3_multispeaker",
+            "n_speakers": 7,
+            "downsample_step": 4,
+            "outputs_per_step": 1,
+            "embedding_weight_std": 0.1,
+            "speaker_embedding_weight_std": 0.05,
+            "dropout": 1 - 0.9,
             "kernel_size": 3,
             "text_embed_dim": 256,
             "encoder_channels": 512,

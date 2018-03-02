@@ -8,7 +8,7 @@ parser.add_argument('input_dir')
 args = parser.parse_args()
 
 with open(os.path.join(args.input_dir, 'train.txt'), 'w') as of:
-    csvwriter = csv.writer(of, delimiter='|')
+    csvwriter = csv.writer(of, delimiter='|', quotechar='*')
     for dir in glob.glob(os.path.join(args.input_dir, '*')):
         if not os.path.isdir(dir):
             continue

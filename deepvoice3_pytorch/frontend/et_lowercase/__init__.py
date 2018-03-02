@@ -5,7 +5,7 @@ n_vocab = len(symbols)
 
 def text_to_sequence(text, p=0.0):
     from deepvoice3_pytorch.frontend.text import text_to_sequence
-    text = text_to_sequence(text, ["estonian_cleaners_eva_lowercase"])
+    text = text_to_sequence(text, ["estonian_cleaners_lowercase"])
     return text
 
 

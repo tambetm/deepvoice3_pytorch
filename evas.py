@@ -23,13 +23,14 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
   executor = ProcessPoolExecutor(max_workers=num_workers)
   futures = []
   index = 1
-  for filename in ['psv_sonad.kj1']:
+  for filename in ['psv_sonad.kj1', 'psv_sonad_lisa.kj1']:
     with open(os.path.join(in_dir, filename), encoding='utf-8') as f:
       f.readline()  # ignore first line
       for line in f:
         parts = line.strip().split('\t')
         wav_path = os.path.join(in_dir, parts[0])
-        text = parts[3].replace('`', '')
+        text = parts[3]
+        text = text.replace('`', '')
         futures.append(executor.submit(partial(_process_utterance, out_dir, index, wav_path, text)))
         index += 1
   return [future.result() for future in tqdm(futures)]

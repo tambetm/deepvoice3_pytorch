@@ -32,6 +32,11 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
         if filename == 'laused_1011-2006.kj1':
           wav_path = wav_path.replace('eva_10', 'eva_20')
         text = parts[3]
+        text = text.replace('*', '') # murdesõna tähis, four samples
+        text = text.replace('’', '') # only one sample, not enough to learn from
+        #text = text.replace('"', '') # only one sentence
+        text = text.replace('„', '"') # not sure if it's better to distinguish starting and ending quote or not?
+        text = text.replace('“', '"')
         futures.append(executor.submit(partial(_process_utterance, out_dir, index, wav_path, text)))
         index += 1
   return [future.result() for future in tqdm(futures)]
