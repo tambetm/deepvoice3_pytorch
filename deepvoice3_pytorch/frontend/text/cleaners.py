@@ -103,7 +103,7 @@ def estonian_cleaners(text):
     #text = expand_numbers(text)
     #text = expand_abbreviations(text)
     #text = collapse_whitespace(text)
-    print("After:", text)
+    #print("After:", text)
     return text
 
 def estonian_cleaners_lowercase(text):
