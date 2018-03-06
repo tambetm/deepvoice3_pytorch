@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Demo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+      img {
+        max-width: 100px;
+        height: auto;
+      }
+      img:hover, img.active {
+        max-width: 130px;
+      }
+      img.active {
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.3);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="display-1">Kõnesünteesi demo</h1>
+      <div class="row">
+        <div id="speaker_0" class="col text-center">
+          <a href="javascript:chooseSpeaker(0)" class="active">
+            <img src="static/meelis_kompus_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Meelis Kompus</span>
+          </a>
+        </div>
+        <div id="speaker_1" class="col text-center">
+          <a href="javascript:chooseSpeaker(1)">
+            <img src="static/tarmo_maiberg_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Tarmo Maiberg</span>
+          </a>
+        </div>
+        <div id="speaker_2" class="col text-center">
+          <a href="javascript:chooseSpeaker(2)">
+            <img src="static/birgit_itse_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Birgit Itse</span>
+          </a>
+        </div>
+        <div id="speaker_3" class="col text-center">
+          <a href="javascript:chooseSpeaker(3)">
+            <img src="static/vallo_kelmsaar_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Vallo Kelmsaar</span>
+          </a>
+        </div>
+        <div id="speaker_4" class="col text-center">
+          <a href="javascript:chooseSpeaker(4)">
+            <img src="static/indrek_kiisler_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Indrek Kiisler</span>
+          </a>
+        </div>
+        <div id="speaker_5" class="col text-center">
+          <a href="javascript:chooseSpeaker(5)">
+            <img src="static/tonu_karjatse_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Tõnu Karjatse</span>
+          </a>
+        </div>
+        <div id="speaker_6" class="col text-center">
+          <a href="javascript:chooseSpeaker(6)">
+            <img src="static/kai_vare_cropped.jpg" class="rounded-circle" />
+            <br/>
+            <span>Kai Vare</span>
+          </a>
+        </div>
+      </div>
+      <p>
+      <form id="speak" onsubmit="synthesize($('#text').val().trim(), speaker_id); return false;">
+        <div class="form-group">
+          <label for="text">Sisesta oma uudis:</label>
+          <input type="text" id="text" class="form-control form-control-lg" value="Kuulete Eesti Raadio uudiseid, stuudios on Meelis Kompus.">
+        </div>
+        <div class="text-center">
+          <button id="button" type="submit" class="btn btn-primary">Räägi!</button>
+        </div>
+      </form>
+      </p>
+      <p>
+      Või proovi neid:<br/>
+      <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Külma on üks kuni viis kraadi ja saartel on õhutemperatuur miinus ühe ja pluss ühe kraadi vahel.</a><br/>
+      <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Kanepi läbis Austraalias kvalifikatsiooni edukalt ja pääses kolmekümne kahe parema hulka.</a><br/>
+      <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Pagari piparkook, pagari piparkook, pagari piparkook, pagari piparkook.</a><br/>
+      <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Musta lehma saba valge lehma taga, valge lehma saba musta lehma taga.</a><br/>
+      </p>
+      <div id="error" class="alert alert-danger" role="alert" style="display: none"></div>
+      <audio id="audio" controls autoplay hidden></audio>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var speaker_id
+    function chooseSpeaker(id) {
+      $('.row img').removeClass('active')
+      $('#speaker_'+id+' img').addClass('active')
+      speaker_id = id
+      text = $('#text').val().trim()
+      if (text)
+      {
+        if (text.startsWith('Kuulete Eesti Raadio uudiseid'))
+        {
+          text = "Kuulete Eesti Raadio uudiseid, stuudios on " + $('#speaker_'+id+' span').text() + "."
+          $('#text').val(text)
+        }
+        synthesize(text, speaker_id)
+      }
+    }
+    $(document).ready(function() {
+      chooseSpeaker(0)
+    })
+
+    function synthesize(text, speaker_id) {
+      if (text)
+      {
+        $('#error').hide()
+        $('#button').text( "Sünteesin...")
+        $('#button').prop( "disabled", true )
+        //$('#audio').prop( "hidden", true )
+        fetch('synthesize?text=' + encodeURIComponent(text) + '&speaker_id=' + encodeURIComponent(speaker_id), {cache: 'no-cache'})
+          .then(function(res) {
+            if (!res.ok) throw Error(response.statusText)
+            return res.blob()
+          }).then(function(blob) {
+            $('#button').text( "Räägi!")
+            $('#button').prop( "disabled", false )
+            $('#audio').prop( "src", URL.createObjectURL(blob))
+            //$('#audio').prop( "hidden", false )
+          }).catch(function(err) {
+            $('#error').text('Error: ' + err.message)
+            $('#error').show()
+            $('#button').text( "Räägi!")
+            $('#button').prop( "disabled", false )
+          })
+      }
+    }
+    </script>
+  </body>
+</html>

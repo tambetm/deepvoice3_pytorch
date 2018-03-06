@@ -66,4 +66,4 @@ class Synthesizer:
     waveform = audio.inv_spectrogram(linear_output.T)
     out = io.BytesIO()
     audio.save_wav(waveform, out)
-    return out.getvalue()
+    return out
