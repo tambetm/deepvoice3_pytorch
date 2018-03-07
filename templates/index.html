@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Demo</title>
+    <title>Kõnesünteesi prototüüp</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style type="text/css">
@@ -20,7 +20,8 @@
 
   <body>
     <div class="container">
-      <h1 class="display-1">Kõnesünteesi demo</h1>
+      <h1 class="display-1">Kõnesünteesi prototüüp</h1>
+      <p>Tegemist on närvivõrkudel põhineva kõnesünteesi prototüübiga, mis on treenitud Eesti Raadio uudiste korpuse peal. Projekt on alles arendusjärgus ja kaugeltki mitte perfektne, aga närvivõrkudel põhinev kõnesüntees kõlab loomulikumalt kui varasemad meetodid. Detailsemat infot projekti kohta leiab <a href="http://www.tarkvaralabor.ee/deepvoice3/">siit</a>.</p>
       <div class="row">
         <div id="speaker_0" class="col text-center">
           <a href="javascript:chooseSpeaker(0)" class="active">
@@ -83,6 +84,8 @@
         </div>
       </form>
       </p>
+      <div id="error" class="alert alert-danger" role="alert" style="display: none"></div>
+      <audio id="audio" controls autoplay hidden></audio>
       <p>
       Või proovi neid:<br/>
       <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Külma on üks kuni viis kraadi ja saartel on õhutemperatuur miinus ühe ja pluss ühe kraadi vahel.</a><br/>
@@ -90,8 +93,8 @@
       <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Pagari piparkook, pagari piparkook, pagari piparkook, pagari piparkook.</a><br/>
       <a href="javascript:void(0)" onclick="$('#text').val($(this).text()); $('#speak').submit(); return false;">Musta lehma saba valge lehma taga, valge lehma saba musta lehma taga.</a><br/>
       </p>
-      <div id="error" class="alert alert-danger" role="alert" style="display: none"></div>
-      <audio id="audio" controls autoplay hidden></audio>
+      <hr/>
+      <aadress>&copy; 2018 Tambet Matiisen, Tartu Ülikooli arvutiteaduse instituut ja Tallinna Tehnikaülikooli küberneetika instituudi foneetika ja kõnetehnoloogia laboratoorium</aadress>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

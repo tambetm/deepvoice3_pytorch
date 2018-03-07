@@ -1,6 +1,7 @@
 import os
 import argparse
 from flask import Flask, render_template, request, abort, send_file
+from flask_cors import CORS, cross_origin
 from hparams import hparams, hparams_debug_string
 from synthesizer import Synthesizer
 
@@ -20,12 +21,14 @@ synthesizer.load(args.checkpoint)
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
+CORS(app)
 
 @app.route("/", methods=['GET'])
-def demo():
-    return render_template('demo.html')
+def index():
+    return render_template('index.html')
 
 @app.route("/synthesize", methods=['GET'])
+@cross_origin('http://neurokone.cs.ut.ee')
 def synthesize():
     text = request.args.get('text', '')
     speaker_id = request.args.get('speaker_id', '')
