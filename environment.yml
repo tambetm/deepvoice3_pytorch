@@ -1,117 +1,99 @@
 name: speech
 channels:
-- pytorch
-- conda-forge
-- defaults
+  - pytorch
+  - conda-forge
+  - defaults
 dependencies:
-- audioread=2.1.4=py36_2
-- bzip2=1.0.6=1
-- decorator=4.1.2=py36_0
-- ffmpeg=2.8.6=5
-- joblib=0.11=py36_0
-- libiconv=1.15=0
-- librosa=0.6.0=py36_0
-- llvmlite=0.21.0=py36_0
-- resampy=0.2.0=py36_1
-- x264=20131217=3
-- backports=1.0=py36hfa02d7e_1
-- backports.weakref=1.0rc1=py36_0
-- bleach=1.5.0=py36_0
-- ca-certificates=2017.08.26=h1d4fec5_0
-- certifi=2017.11.5=py36hf29ccca_0
-- cffi=1.11.4=py36h9745a5d_0
-- cmake=3.9.4=h142f0e9_0
-- cudatoolkit=8.0=3
-- cudnn=7.0.5=cuda8.0_0
-- curl=7.58.0=h84994c4_0
-- cycler=0.10.0=py36h93f1223_0
-- dbus=1.10.22=h3b5a359_0
-- docopt=0.6.2=py36_0
-- expat=2.2.5=he0dffb1_0
-- fontconfig=2.12.4=h88586e7_1
-- freetype=2.8=hab7d2ae_1
-- glib=2.53.6=h5d9569c_2
-- gst-plugins-base=1.12.2=he3457e5_0
-- gstreamer=1.12.2=h4f93127_0
-- h5py=2.7.1=py36h3585f63_0
-- hdf5=1.10.1=h9caa474_1
-- html5lib=0.9999999=py36_0
-- icu=58.2=h9c2bf20_1
-- intel-openmp=2018.0.0=hc7b2577_8
-- jpeg=9b=h024ee3a_2
-- keras=2.0.8=py36hc0b6f7c_0
-- libcurl=7.58.0=h1ad7b7a_0
-- libedit=3.1=heed3624_0
-- libffi=3.2.1=hd88cf55_4
-- libgcc=7.2.0=h69d50b8_2
-- libgcc-ng=7.2.0=h7cc24e2_2
-- libgfortran-ng=7.2.0=h9f7466a_2
-- libpng=1.6.32=hbd3595f_4
-- libprotobuf=3.4.1=h5b8497f_0
-- libssh2=1.8.0=h9cfc8f7_4
-- libstdcxx-ng=7.2.0=h7a57d05_2
-- libtiff=4.0.9=h28f6b97_0
-- libuv=1.19.2=h14c3975_0
-- libxcb=1.12=hcd93eb1_4
-- libxml2=2.9.4=h2e8b1d7_6
-- markdown=2.6.9=py36_0
-- matplotlib=2.1.1=py36ha26af80_0
-- mkl=2018.0.1=h19d6760_4
-- ncurses=6.0=h9df7e31_2
-- nltk=3.2.5=py36h7532b22_0
-- numba=0.36.2=np114py36hc6662d5_0
-- numpy=1.14.1=py36h3dfced4_1
-- olefile=0.45.1=py36_0
-- openssl=1.0.2n=hb7f436b_0
-- pcre=8.41=hc27e229_1
-- pillow=5.0.0=py36h3deb7b8_0
-- pip=9.0.1=py36h6c6f9ce_4
-- protobuf=3.4.1=py36h306e679_0
-- pycparser=2.18=py36hf9f622e_1
-- pyparsing=2.2.0=py36hee85983_1
-- pyqt=5.6.0=py36h0386399_5
-- python=3.6.4=hc3d631a_1
-- python-dateutil=2.6.1=py36h88d3b88_1
-- pytz=2017.3=py36h63b9c63_0
-- pyyaml=3.12=py36hafb9ca4_1
-- qt=5.6.2=h974d657_12
-- readline=7.0=ha6073c6_4
-- regex=2017.11.09=py36had819a5_0
-- rhash=1.3.5=hbf7ad62_1
-- scikit-learn=0.19.1=py36h7aa7ec6_0
-- scipy=1.0.0=py36hbf646e7_0
-- setuptools=38.5.1=py36_0
-- sip=4.18.1=py36h51ed4ed_2
-- six=1.11.0=py36h372c433_1
-- sqlite=3.20.1=hb898158_2
-- tensorflow=1.3.0=0
-- tensorflow-base=1.3.0=py36h5293eaa_1
-- tensorflow-gpu=1.4.1=0
-- tensorflow-gpu-base=1.4.1=py36h01caf0a_0
-- tensorflow-tensorboard=0.1.5=py36_0
-- tk=8.6.7=hc745277_3
-- tornado=4.5.2=py36h1283b2a_0
-- tqdm=4.19.4=py36ha5a5176_0
-- typing=3.6.4=py36_0
-- unidecode=0.04.21=py36_0
-- werkzeug=0.12.2=py36hc703753_0
-- wheel=0.30.0=py36hfd4bba0_1
-- xz=5.2.3=h55aa19d_2
-- yaml=0.1.7=had09818_2
-- zlib=1.2.11=ha838bed_2
-- magma-cuda80=2.3.0=1
-- pip:
-  - bandmat==0.6
-  - cython==0.27.3
-  - falcon==1.2.0
-  - fastdtw==0.3.2
-  - inflect==0.2.5
-  - lws==1.2
-  - nnmnkwii==0.0.13
-  - pysptk==0.1.10
-  - python-mimeparse==1.6.0
-  - sklearn==0.0
-  - tensorboardx==1.1
-  - torch==0.3.1b0+2b47480
-prefix: /home/tambet/.conda/envs/speech
+  - bzip2=1.0.6=1
+  - ffmpeg=3.4.1=2
+  - freetype=2.8.1=0
+  - gmp=6.1.2=0
+  - gnutls=3.5.17=0
+  - libiconv=1.15=0
+  - libidn11=1.33=0
+  - libpng=1.6.34=0
+  - nettle=3.3=0
+  - x264=20131217=3
+  - backports=1.0=py36_0
+  - backports.weakref=1.0rc1=py36_0
+  - bleach=1.5.0=py36_0
+  - certifi=2016.2.28=py36_0
+  - cffi=1.10.0=py36_0
+  - cudatoolkit=8.0=3
+  - cudnn=7.0.5=cuda8.0_0
+  - docopt=0.6.2=py36_0
+  - html5lib=0.9999999=py36_0
+  - intel-openmp=2018.0.0=hc7b2577_8
+  - jpeg=9b=h024ee3a_2
+  - libedit=3.1=heed3624_0
+  - libffi=3.2.1=1
+  - libgcc=5.2.0=0
+  - libgcc-ng=7.2.0=h7cc24e2_2
+  - libgfortran-ng=7.2.0=h9f7466a_2
+  - libprotobuf=3.4.0=0
+  - libstdcxx-ng=7.2.0=h7a57d05_2
+  - libtiff=4.0.9=h28f6b97_0
+  - markdown=2.6.9=py36_0
+  - mkl=2018.0.1=h19d6760_4
+  - nccl=1.3.4=cuda8.0_1
+  - ncurses=6.0=h9df7e31_2
+  - nltk=3.2.4=py36_0
+  - numpy=1.14.1=py36h3dfced4_1
+  - olefile=0.45.1=py36_0
+  - openssl=1.0.2l=0
+  - pillow=5.0.0=py36h3deb7b8_0
+  - pip=9.0.1=py36_1
+  - protobuf=3.4.0=py36_0
+  - pycparser=2.18=py36_0
+  - python=3.6.3=h0ef2715_3
+  - readline=7.0=ha6073c6_4
+  - requests=2.14.2=py36_0
+  - setuptools=36.4.0=py36_1
+  - six=1.10.0=py36_0
+  - sqlite=3.22.0=h1bed415_0
+  - tensorflow-gpu=1.4.1=0
+  - tensorflow-gpu-base=1.4.1=py36h01caf0a_0
+  - tensorflow-tensorboard=0.1.5=py36_0
+  - tk=8.6.7=hc745277_3
+  - werkzeug=0.12.2=py36_0
+  - wheel=0.29.0=py36_0
+  - xz=5.2.3=0
+  - zlib=1.2.11=0
+  - pytorch=0.3.1=py36_cuda8.0.61_cudnn7.0.5_2
+  - pip:
+    - audioread==2.1.5
+    - bandmat==0.6
+    - blessings==1.6.1
+    - cycler==0.10.0
+    - cython==0.27.3
+    - decorator==4.1.2
+    - falcon==1.2.0
+    - fastdtw==0.3.2
+    - gpustat==0.4.1
+    - gpustats==0.0.1
+    - inflect==0.2.5
+    - joblib==0.11
+    - librosa==0.5.1
+    - llvmlite==0.21.0
+    - lws==1.2
+    - matplotlib==2.0.2
+    - nnmnkwii==0.0.13
+    - numba==0.36.2
+    - nvidia-ml-py3==7.352.0
+    - psutil==5.4.3
+    - pyparsing==2.2.0
+    - pysptk==0.1.10
+    - python-dateutil==2.6.1
+    - python-mimeparse==1.6.0
+    - pytz==2017.3
+    - resampy==0.2.0
+    - scikit-learn==0.19.1
+    - scipy==0.19.0
+    - sklearn==0.0
+    - tensorboardx==1.1
+    - tensorflow==1.4.1
+    - torch==0.3.1.post2
+    - tqdm==4.11.2
+    - unidecode==0.4.20
+prefix: /gpfs/hpchome/tambet/anaconda3/envs/voice
 
